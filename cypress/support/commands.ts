@@ -1,4 +1,12 @@
 /// <reference types="cypress" />
+
+Cypress.Commands.add('getIFrameBody', (xpath) => {
+    return cy.xpath(xpath)
+        .its('0.contentDocument.body')
+        .should('not.be.empty')
+        .then(cy.wrap);
+})
+
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite

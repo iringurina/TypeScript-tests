@@ -4,6 +4,10 @@ export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
-    },
+    }, 
+    baseUrl: "https://www.onliner.by/",
+    chromeWebSecurity: false,
+    viewportWidth: 1920,
+    viewportHeight: 1080
   },
 });

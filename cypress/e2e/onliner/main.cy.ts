@@ -60,7 +60,7 @@ describe("Onliner Main Feature", () => {
     it("Search test", () => {
         mainPageObj.setSearchTerm(defaultSearchCategory);
         //searchPopup.validateSeachResults(defaultSearchCategory, 10);
-        searchPopup.checkIfSearchCategoryIsDisplayed();
+        searchPopup.checkIfSearchCategoryIsDisplayed(); //не могу понять, почему падает этот тест
         searchPopup.clearSearchInput();
     })        
 })

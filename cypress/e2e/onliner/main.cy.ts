@@ -61,6 +61,6 @@ describe("Onliner Main Feature", () => {
         mainPageObj.setSearchTerm(defaultSearchCategory);
         //searchPopup.validateSeachResults(defaultSearchCategory, 10);
         searchPopup.checkIfSearchCategoryIsDisplayed(); //не могу понять, почему падает этот тест
-        searchPopup.clearSearchInput();
+        searchPopup.clearSearchInput(); //и может, подскажешь, как проверить, что результаты поиска не отображаются? на что завязаться?
     })        
 })

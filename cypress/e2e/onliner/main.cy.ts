@@ -5,7 +5,10 @@ import { registerPage } from "../../pages/registerPage";
 import { mainPageObj } from "../../pages/mainPage";
 import { articlePageObj } from "../../pages/articlePage";
 import { searchPopup } from "../../pages/popups/searchPopup";
-import { defaultSearchCategory } from "../../data/constants/productsData";
+import { defaultSearchCategory, defaultSearchProduct } from "../../data/constants/productsData";
+import { productPageObj } from "../../pages/productPage";
+import { basketPageObj } from "../../pages/basketPage";
+import { offersPageObj } from "../../pages/offersPage";
 
 describe("Onliner Main Feature", () => {
     beforeEach(() => {
@@ -59,8 +62,34 @@ describe("Onliner Main Feature", () => {
 
     it("Search test", () => {
         mainPageObj.setSearchTerm(defaultSearchCategory);
-        //searchPopup.validateSeachResults(defaultSearchCategory, 10);
-        searchPopup.checkIfSearchCategoryIsDisplayed(); //не могу понять, почему падает этот тест
-        searchPopup.clearSearchInput(); //и может, подскажешь, как проверить, что результаты поиска не отображаются? на что завязаться?
-    })        
+        searchPopup.validateSeachResultsForCategory();
+        searchPopup.clearSeachResults(); //как проверить, что результаты поиска не отображаются? на что завязаться?
+        searchPopup.setSearchTerm(defaultSearchProduct);
+        searchPopup.openProductDetails(); //пишет, что не можем кликнуть на элемент, т.к. их 10, но он ведь 1  
+    })
+    
+    //     it("Buy product test", () => {
+    //         loginPage.logInbyCookie(cookie);
+    //         mainPageObj.openFeaturedProduct();
+    //         productPageObj.viewOffers();
+    //         offersPageObj.setSortOption();
+    //         offersPageObj.addToBasket();
+    //         offersPageObj.closeSidebar();
+    //         offersPageObj.openProductDetails();
+    //         //productPageObj.compareBasketButtonItemAddedText('В корзине'); //не работает
+    //          //Сохраняем название продукта
+    //         productPageObj.getProductTitle().then(productTitleText => {
+    //         // Сохраняем цену продукта
+    //         productPageObj.getProductPrice().then(productPriceText => {
+    //             // Переходим в корзину
+    //             mainPageObj.openBasket();
+    //             // Сравниваем название добавленного продукта
+    //             basketPageObj.compareAddedProductTitle(productTitleText.replace(/&nbsp;/g, ' ').trim()); 
+    //             // Сравниваем цену добавленного продукта
+    //             basketPageObj.compareAddedProductPrice(productPriceText.replace(/&nbsp;/g, ' ').trim());
+    //         })
+            
+    //     })
+
+    // })
 })

@@ -65,7 +65,8 @@ describe("Onliner Main Feature", () => {
         searchPopup.validateSeachResultsForCategory();
         searchPopup.clearSeachResults(); //как проверить, что результаты поиска не отображаются? на что завязаться?
         searchPopup.setSearchTerm(defaultSearchProduct);
-        searchPopup.openProductDetails(); //пишет, что не можем кликнуть на элемент, т.к. их 10, но он ведь 1  
+        searchPopup.validateSeachResultsForProduct();
+        searchPopup.openProductDetails(); 
     })
     
     //     it("Buy product test", () => {

@@ -4,7 +4,7 @@ class SearchPopup {
     private searchFrameContainerLocator = "//iframe[@class='modal-iframe']";
     private defaultSearchCategoryLocator = ".//a[@class = 'category__title'][contains(text(),'Карты памяти')]";
     private searchInputLocator = ".//input[@class = 'search__input']";
-    private defaultSearchProductLocator = ".//a[@class='product__title-link']";
+    private defaultSearchProductLocator = ".//div[@class = 'product__title']/a[contains(@href,'mi1040')]";
           
     // Веб-элементы (приватные)
 
@@ -26,6 +26,11 @@ class SearchPopup {
     openProductDetails() {
         cy.getIFrameBody(this.searchFrameContainerLocator)
             .xpath(this.defaultSearchProductLocator).click();
+    }
+    validateSeachResultsForProduct() {
+        cy.getIFrameBody(this.searchFrameContainerLocator)
+            .xpath(this.defaultSearchProductLocator)
+            .should('be.visible');
     }  
 }
 

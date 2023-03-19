@@ -8,8 +8,6 @@ export async function getPostById(reqId: number) {
         statusCode: response.statusCode,
         postData: response.body[0]
     };
-    //console.log(respObj.statusCode);
-    //console.log(respObj.postData);
     return respObj;
 }
 export async function getPosts() {  
@@ -50,7 +48,7 @@ export async function getPostsByUserId(reqId: number) {
         statusCode: response.statusCode,
         postData: response.body
     };
-    //console.log(respObj.statusCode);
-    //console.log(respObj.postData);
+    // console.log(respObj.statusCode);
+    // console.log(respObj.postData);
     return respObj;
 }

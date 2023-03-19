@@ -23,15 +23,19 @@ class SearchPopup {
         cy.getIFrameBody(this.searchFrameContainerLocator)
             .xpath(this.searchInputLocator).type(term);
     }
-    openProductDetails() {
-        cy.getIFrameBody(this.searchFrameContainerLocator)
-            .xpath(this.defaultSearchProductLocator).click();
-    }
     validateSeachResultsForProduct() {
         cy.getIFrameBody(this.searchFrameContainerLocator)
             .xpath(this.defaultSearchProductLocator)
             .should('be.visible');
-    }  
+    } 
+    openProductDetails() {
+        cy.getIFrameBody(this.searchFrameContainerLocator)
+            .xpath(this.defaultSearchProductLocator).click();
+    }
+    getProductTitle() {
+        return cy.getIFrameBody(this.searchFrameContainerLocator)
+            .xpath(this.defaultSearchProductLocator).invoke('text');
+    } 
 }
 
 export const searchPopup = new SearchPopup();

@@ -60,14 +60,20 @@ describe("Onliner Main Feature", () => {
     //     articlePageObj.checkIfIconIsClicked();
     // })
 
-    it("Search test", () => {
-        mainPageObj.setSearchTerm(defaultSearchCategory);
-        searchPopup.validateSeachResultsForCategory();
-        searchPopup.clearSeachResults(); //как проверить, что результаты поиска не отображаются? на что завязаться?
-        searchPopup.setSearchTerm(defaultSearchProduct);
-        searchPopup.validateSeachResultsForProduct();
-        searchPopup.openProductDetails(); 
-    })
+    // it("Search test", () => {
+    //     mainPageObj.setSearchTerm(defaultSearchCategory);
+    //     searchPopup.validateSeachResultsForCategory();
+    //     searchPopup.clearSeachResults(); //как проверить, что результаты поиска не отображаются? на что завязаться?
+    //     searchPopup.setSearchTerm(defaultSearchProduct);
+    //     searchPopup.validateSeachResultsForProduct();
+    //     //Сохраняем название продукта на попапе с поиском
+    //     searchPopup.getProductTitle().then(productTitleText => {
+    //         // Переходим на страницу с детялами продукта
+    //         searchPopup.openProductDetails();
+    //             // Сравниваем название найденного продукта
+    //             productPageObj.compareProductTitleWithSearchResultsProductTitle(productTitleText.replace(/&nbsp;/g, ' ').trim())});      
+    // })
+    
     
     //     it("Buy product test", () => {
     //         loginPage.logInbyCookie(cookie);

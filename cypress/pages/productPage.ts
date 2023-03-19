@@ -2,7 +2,7 @@ class ProductPage {
     //Локаторы
   
     private productTitleLocator = '//h1[@class = "catalog-masthead__title js-nav-header"]';
-    private productPriceLocator = '//div[@class = "offers-description__price offers-description__price_secondary"]';
+    private productPriceLocator = '//div[@class = "offers-description__price offers-description__price_primary"]';
     private offersButtonLocator = '//a[@class = "button button_orange button_big offers-description__button js-product-prices-count-link"]';
         
     //Веб-элементы
@@ -27,6 +27,9 @@ class ProductPage {
     }
     viewOffers() {
         this.offersButton.click();
+    }
+    compareProductTitleWithSearchResultsProductTitle(expectedText: string): void {
+        this.productTitle.should('contain.text', expectedText);
     }
 }
     

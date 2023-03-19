@@ -1,8 +1,8 @@
 class BasketPage {
     //Локаторы
 
-    private addedProductTitleLocator = '//*[@id="container"]/div[2]/div/div/div/div/div[2]/div/div[4]/div/div/div[2]/div/div[2]/div[1]/a';
-    private addedProductPriceLocator = '//*[@id="container"]/div[2]/div/div/div/div/div[2]/div/div[4]/div/div/div[2]/div/div[4]/div/div[3]';
+    private addedProductTitleLocator = '//div[@class = "cart-form__description cart-form__description_primary cart-form__description_base-alter cart-form__description_font-weight_semibold cart-form__description_condensed-other"]';
+    private addedProductPriceLocator = '//div[@class = "cart-form__description cart-form__description_primary cart-form__description_base-alter cart-form__description_font-weight_semibold cart-form__description_ellipsis cart-form__description_condensed-another"]';
         
     //Веб-элементы
 

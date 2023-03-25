@@ -1,7 +1,7 @@
 class ArticlePage {
     // Локаторы
 
-    private firstArticleLocator = "//div[@id='widget-1-3']";
+    private firstArticleLocator = "//div[@id='widget-3-3']";
     private smileIconLocator = "//div[@class = 'st-btn st-first'][@data-reaction = 'slight_smile']";
     private smileIconVotesCountLocator = "//*[@id='st-1']/div[1]/span[1]";
     private smileClickedIconLocator = "//div[@class = 'st-btn st-first st-selected'][@data-reaction = 'slight_smile']";

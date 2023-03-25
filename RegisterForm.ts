@@ -13,52 +13,67 @@ class RegisterForm{
         this.termsAgreement = termsAgreement;
         this.registered = registered;
     }
-    setEmail(email: string) {
+    setEmail(email: string): boolean {
         let regexp = /(\w+\.)+\w+/g;
         if (email.match(regexp)) {
-            this.email = email;    
+            this.email = email;
+            return true;    
         }
         else {
             console.log('email введен неверно');
+            return false;
         }
     }
-    setPassword(password: string) {
-        //let regexp = '/[0-9]/';
-        if (password.length >= 8) { // && password.match(regexp)
-            this.password = password;    
+    setPassword(password: string): boolean {
+        let regexp = /\d/;
+        if (password.length >= 8 && password.match(regexp)) { 
+            this.password = password;
+            return true;    
         }
         else {
             console.log('пароль должен содержать минимум 8 символов и минимум 1 цифру');
+            return false;
         }
     }
-    setUsername(username: string) { 
+    setUsername(username: string): boolean { 
         if (username.length > 0) { 
-            this.username = username;    
+            this.username = username;
+            return true;    
         }
         else {
             console.log('username не введен');
+            return false;
         }
     }
-    setAge(age: number) {
+    setAge(age: number): boolean {
         if (age > 0 && age < 150) { 
-            this.age = age;    
+            this.age = age;
+            return true;    
         }
         else {
             console.log('возраст должен быть в диапазоне от 0 до 150');
+            return false;
         }
     }
-    agreeWithTerms() {
-        this.termsAgreement = true;
+    agreeWithTerms(agree: boolean): boolean {
+        if (agree) {
+            this.termsAgreement = true;
+            return true;
+        }
+        else {
+            console.log('для регистрации необходимо согласие с условиями');
+            return false;
+        }
     }
-    register(email: string, password: string, username: string, age: number, termsAgreement: boolean) {
-        this.setEmail(email);
-        this.setPassword(password);
-        this.setUsername(username);
-        this.setAge(age);
-        this.agreeWithTerms();
-        this.registered = true;
-        let registerDate = new Date();
-        return (`The user was succeessfully registered on ${registerDate}`);  
+    register(email: string, password: string, username: string, age: number, agree: boolean): string {
+        if (this.setEmail(email) && (this.setPassword(password)) && (this.setUsername(username)) && (this.setAge(age)) && this.agreeWithTerms(agree)) {
+            this.registered = true;
+            let registerDate = new Date();
+            return (`пользователь был зарегистрирован ${registerDate}`); 
+        }
+        else {
+            return (`пользователь не был зарегистрирован из-за проблемы, указанной выше`);
+        } 
     }    
 }
 

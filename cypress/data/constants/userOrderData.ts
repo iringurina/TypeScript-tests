@@ -3,3 +3,4 @@ export const defaultHouse = "50";
 export const defaultFlat = "10";
 export const defaultFirstName = 'Ирина';
 export const defaultLastName = 'Гурина';
+export const defaultPhone = '295008040';

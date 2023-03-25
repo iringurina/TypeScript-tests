@@ -7,7 +7,7 @@ import { offersPageObj } from "../../pages/offersPage";
 import { defaultSearchProduct } from "../../data/constants/productsData";
 import { searchPopup } from "../../pages/popups/searchPopup";
 import { orderPageObj } from "../../pages/orderPage";
-import { defaultFirstName, defaultFlat, defaultHouse, defaultLastName, defaultStreet } from "../../data/constants/userOrderData";
+import { defaultFirstName, defaultFlat, defaultHouse, defaultLastName, defaultStreet,defaultPhone } from "../../data/constants/userOrderData";
 
 describe("Onliner Buy Product", () => {
     beforeEach(() => {
@@ -35,10 +35,12 @@ describe("Onliner Buy Product", () => {
         })
         basketPageObj.goToOrder();
         orderPageObj.enterStreet(defaultStreet);
+        //orderPageObj.selectStreet(1);
         orderPageObj.enterHouse(defaultHouse);
         orderPageObj.enterFlat(defaultFlat);
         orderPageObj.enterFirstName(defaultFirstName);
         orderPageObj.enterLastName(defaultLastName);
+        orderPageObj.enterPhone(defaultPhone);
         orderPageObj.goToPayment();
     })
 })

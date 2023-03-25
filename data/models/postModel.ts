@@ -5,6 +5,7 @@ export interface IPost {
     body: string;
 }
 export interface INewPost {
+    userId: number;
     title: string;
     body: string;
 }

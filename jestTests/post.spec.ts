@@ -1,8 +1,8 @@
 import { expectedPost, newPost, updatedPost } from "../data/constants/postData";
 import { getPostById, getPosts, createPost, updatePost, deletePost, getPostsByUserId } from "../api/posts";
-import { getCommentsByPostId } from "../api/comments";
+import { getCommentsByPostId } from "../api/comments"; 
 
-describe("API Basic", () => {
+describe("API Posts and Comments", () => {
 
     test("GET: get post by id", async () => {
         const apiResponse = await getPostById(1);
@@ -17,10 +17,11 @@ describe("API Basic", () => {
     });
 
     test("POST: create 1 post", async () => {
-        const apiResponse = await createPost('Test title', 'Test body');
+        const apiResponse = await createPost('Test title', 'Test body', 1);
         expect(apiResponse.statusCode).toEqual(201);
         expect(apiResponse.postData.title).toEqual(newPost.title);
         expect(apiResponse.postData.body).toEqual(newPost.body);
+        expect(apiResponse.postData.userId).toEqual(newPost.userId);
     });
 
     test("PUT: update 1 post", async () => {
@@ -70,3 +71,4 @@ describe("API Basic", () => {
     // // Почему-то приходит статус 200, а не 404
 
 });
+

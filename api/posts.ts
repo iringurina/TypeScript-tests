@@ -18,8 +18,8 @@ export async function getPosts() {
     };
     return respObj;
 }
-export async function createPost(titleToSet: string, bodyToSet: string) {
-    const response = await superagent.post(baseUrlPosts).set('Content-type', 'application/json').send({title: titleToSet, body: bodyToSet});
+export async function createPost(titleToSet: string, bodyToSet: string, authorId: number) {
+    const response = await superagent.post(baseUrlPosts).set('Content-type', 'application/json').send({title: titleToSet, body: bodyToSet, userId: authorId});
     const respObj = {
         statusCode: response.statusCode,
         postData: response.body
@@ -48,7 +48,5 @@ export async function getPostsByUserId(reqId: number) {
         statusCode: response.statusCode,
         postData: response.body
     };
-    // console.log(respObj.statusCode);
-    // console.log(respObj.postData);
     return respObj;
 }

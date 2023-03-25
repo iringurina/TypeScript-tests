@@ -8,6 +8,7 @@ export const expectedPost: IPost = {
     "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
 }
 export const newPost: INewPost = {
+    "userId": 1,
     "title": "Test title",
     "body": "Test body"
 }

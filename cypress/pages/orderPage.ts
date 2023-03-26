@@ -9,6 +9,12 @@ class OrderPage {
     private phoneInputLocator = '//div[@class = "cart-form__row cart-form__row_condensed-fringe"][5]//input[contains(@class,"cart-form__input_width_xxsss")]';
     private paymentButtonLocator = '//button[@class = "button-style button-style_primary button-style_base cart-form__button cart-form__button_responsive"]';
     private streetDropdownLocator = '//div[@class ="cart-form__row cart-form__row_condensed-fringe"][2]//div[contains(@class,"auth-dropdown")]';
+    private paymentByCardLocator = '//div[@class = "cart-form__anchor-list"]//div[@id = "anchor-item_online_card"]';
+    private paymentByMinipayLocator = '//div[@class = "cart-form__anchor-list"]//div[@id = "anchor-item_by_parts"]';
+    private paymentByHalvaLocator = '//div[@class = "cart-form__anchor-list"]//div[@id = "anchor-item_online_installment_card"]';
+    private paymentWhenReceivedLocator = '//div[@class = "cart-form__anchor-list"]//div[@id = "anchor-item_offline"]';
+    private paymentByCardIsActiveLocator = '//div[@class = "cart-form__anchor-list"]//div[@id = "anchor-item_online_card"][@class = "cart-form__anchor-item cart-form__anchor-item_shield cart-form__anchor-item_active"]';
+    private confirmOrderButtonLocator = '//button[contains(@class, "cart-form__button")][contains(text(), "Перейти к подтверждению заказа")]';
         
     //Веб-элементы
 
@@ -35,6 +41,24 @@ class OrderPage {
     }
     private get streetDropdown() {
         return cy.xpath(this.streetDropdownLocator);  
+    }
+    private get paymentByCard() {
+        return cy.xpath(this.paymentByCardLocator);  
+    }
+    private get paymentByMinipay() {
+        return cy.xpath(this.paymentByMinipayLocator);  
+    }
+    private get paymentByHalva() {
+        return cy.xpath(this.paymentByHalvaLocator);  
+    }
+    private get paymentWhenReceived() {
+        return cy.xpath(this.paymentWhenReceivedLocator);  
+    }
+    private get paymentByCardIsActive() {
+        return cy.xpath(this.paymentByCardIsActiveLocator);  
+    }
+    private get confirmOrderButton() {
+        return cy.xpath(this.confirmOrderButtonLocator);  
     }
     
     //Методы для взаимодействия с ними
@@ -63,6 +87,24 @@ class OrderPage {
     selectStreet(option: number) {
         this.streetDropdown.select(option);
     }
+    checkIfPaymentByCardIsDisplayed() {
+        this.paymentByCard.should('be.visible');
+    }
+    checkIfPaymentByMinipayIsDisplayed() {
+        this.paymentByMinipay.should('be.visible');
+    }
+    checkIfPaymentByHalvaIsDisplayed() {
+        this.paymentByHalva.should('be.visible');
+    }
+    checkIfPaymentWhenReceivedIsDisplayed() {
+        this.paymentWhenReceived.should('be.visible');
+    }
+    checkIfPaymentByCardIsSelected() {
+        this.paymentByCardIsActive.should('be.visible');
+    }
+    checkIfConfirmOrderButtonIsDisplayed() {
+        this.confirmOrderButton.should('be.visible');
+    }    
 }
     
 export const orderPageObj = new OrderPage();

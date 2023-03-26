@@ -41,7 +41,6 @@ class LoginPage {
     openRegisterForm() {
         this.registerLink.click();
     }
-
 }
 
 export const loginPage = new LoginPage();

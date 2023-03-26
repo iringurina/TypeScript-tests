@@ -4,7 +4,8 @@ class BasketPage {
     private addedProductTitleLocator = '//div[@class = "cart-form__description cart-form__description_primary cart-form__description_base-alter cart-form__description_font-weight_semibold cart-form__description_condensed-other"]';
     private addedProductPriceLocator = '//div[@class = "cart-form__description cart-form__description_primary cart-form__description_base-alter cart-form__description_font-weight_semibold cart-form__description_ellipsis cart-form__description_condensed-another"]';
     private orderButtonLocator = '//a[@class = "button-style button-style_small cart-form__button button-style_primary"]';
-        
+    private removeButtonLocator = '//a[@class = "button-style button-style_auxiliary button-style_small cart-form__button cart-form__button_remove"]'; 
+            
     //Веб-элементы
 
     private get addedProductTitle() {
@@ -15,6 +16,9 @@ class BasketPage {
     }
     private get orderButton() {
         return cy.xpath(this.orderButtonLocator);  
+    }
+    private get removeButton() {
+        return cy.xpath(this.removeButtonLocator);  
     }
     
     //Методы для взаимодействия с ними
@@ -27,6 +31,9 @@ class BasketPage {
     }
     goToOrder() {
         this.orderButton.click({force: true});
+    }
+    removeProduct() {
+        this.removeButton.click({force: true});
     }
 }
     

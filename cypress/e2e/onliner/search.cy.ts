@@ -4,13 +4,13 @@ import { productPageObj } from "../../pages/productPage";
 import { defaultSearchCategory, defaultSearchProduct } from "../../data/constants/productsData";
 
 describe("Onliner Search", () => {
-    beforeEach(() => {
+    before(() => {
         cy.visit('/');
     })
     it("Search test", () => {
         mainPageObj.setSearchTerm(defaultSearchCategory);
         searchPopup.validateSeachResultsForCategory();
-        searchPopup.clearSeachResults(); //как проверить, что результаты поиска не отображаются? на что завязаться?
+        searchPopup.clearSeachResults();
         searchPopup.setSearchTerm(defaultSearchProduct);
         searchPopup.validateSeachResultsForProduct();
         searchPopup.getProductTitle().then(productTitleText => {

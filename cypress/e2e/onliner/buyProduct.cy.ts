@@ -10,13 +10,12 @@ import { orderPageObj } from "../../pages/orderPage";
 import { defaultFirstName, defaultFlat, defaultHouse, defaultLastName, defaultStreet,defaultPhone } from "../../data/constants/userOrderData";
 
 describe("Onliner Buy Product", () => {
-    beforeEach(() => {
+    before(() => {
         cy.visit('/');
     })
 
     it("Buy product test", () => {
         loginPage.logInbyCookie(cookie);
-        cy.reload();
         mainPageObj.setSearchTerm(defaultSearchProduct); //использую поле поиска на главной странице, чтобы открыть попап для поиска, с главной не всегда успевает отработать ввод всех символов
         searchPopup.clearSeachResults(); //чистим поле ввода, чтобы ввести нужный продукт
         searchPopup.setSearchTerm(defaultSearchProduct);
@@ -34,13 +33,25 @@ describe("Onliner Buy Product", () => {
             })   
         })
         basketPageObj.goToOrder();
-        orderPageObj.enterStreet(defaultStreet);
-        //orderPageObj.selectStreet(1);
-        orderPageObj.enterHouse(defaultHouse);
-        orderPageObj.enterFlat(defaultFlat);
-        orderPageObj.enterFirstName(defaultFirstName);
-        orderPageObj.enterLastName(defaultLastName);
-        orderPageObj.enterPhone(defaultPhone);
+        //orderPageObj.enterStreet(defaultStreet);
+        //orderPageObj.selectStreet(1); //не смогла одолеть дропдаун с улицей, использую предзаполненный адрес
+        //orderPageObj.enterHouse(defaultHouse);
+        //orderPageObj.enterFlat(defaultFlat);
+        //orderPageObj.enterFirstName(defaultFirstName);
+        //orderPageObj.enterLastName(defaultLastName);
+        //orderPageObj.enterPhone(defaultPhone);
         orderPageObj.goToPayment();
+        orderPageObj.checkIfPaymentByCardIsDisplayed();
+        orderPageObj.checkIfPaymentByMinipayIsDisplayed();
+        orderPageObj.checkIfPaymentByHalvaIsDisplayed();
+        orderPageObj.checkIfPaymentWhenReceivedIsDisplayed();
+        orderPageObj.checkIfPaymentByCardIsSelected();
+        orderPageObj.checkIfConfirmOrderButtonIsDisplayed();
     })
+
+    after(() => {
+        cy.visit('/'); 
+        mainPageObj.openBasket();
+        basketPageObj.removeProduct();             
+      })
 })

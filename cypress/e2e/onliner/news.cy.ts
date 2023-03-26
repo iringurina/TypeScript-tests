@@ -4,7 +4,7 @@ import { loginPage } from "../../pages/loginPage";
 import { email, pass, emailToRegister, passToRegister, cookie} from "../../data/constants/loginData";
 
 describe("Onliner React on News", () => {
-    beforeEach(() => {
+    before(() => {
         cy.visit('/');
     })
     it("React on auto news article", () => {
